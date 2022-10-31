@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 474933871}
   - component: {fileID: 474933872}
   m_Layer: 0
-  m_Name: Effect 2 Source
+  m_Name: Voice 2 Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 1894748442}
   - component: {fileID: 1894748441}
   m_Layer: 0
-  m_Name: Effect Source
+  m_Name: Voice 1 Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

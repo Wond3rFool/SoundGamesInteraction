@@ -15,15 +15,16 @@ public class PlaySound : MonoBehaviour
     private float scene1Timer;
     private float scene2Timer;
     private bool canContinue1stScene;
-    private bool voices;
+    private bool canContinue2ndScene;
     void Start()
     {
         //Plays the alarm at the start of the game
         SMScript.instance.PlayBGM(alarm);
-        voices = false;
+        canContinue1stScene = false;
+        canContinue2ndScene = false;
         timer = 5f;
         scene1Timer = 16f;
-        scene2Timer = 16f;
+        scene2Timer = 32f;
         FirstScene();
     }
 
@@ -32,6 +33,7 @@ public class PlaySound : MonoBehaviour
     {
         timer -= Time.deltaTime;
         scene1Timer -= Time.deltaTime;
+        scene2Timer -= Time.deltaTime;
 
         if (timer <= 0)
         {
@@ -53,6 +55,21 @@ public class PlaySound : MonoBehaviour
                 SecondScene();
                 canContinue1stScene = false;
             }
+        }
+
+        if (scene2Timer <= 0 && canContinue2ndScene) 
+        {
+            if (Input.GetKeyDown(KeyCode.A)) 
+            {
+                //scene switch to 3 probably.
+                
+            }
+            if (Input.GetKeyDown(KeyCode.D)) 
+            {
+                //scene switch to 3 probably.
+            
+            }
+        
         }
     }
 
