@@ -44,6 +44,10 @@ public class SMScript : MonoBehaviour
     {
         if(!musicSource.isPlaying)
             musicSource.PlayOneShot(bgm, 0.1f);
-    
+    }
+
+    public void StopBGM() 
+    {
+        musicSource.Stop();
     }
 }

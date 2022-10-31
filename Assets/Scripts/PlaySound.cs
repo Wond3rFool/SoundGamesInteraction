@@ -12,7 +12,8 @@ public class PlaySound : MonoBehaviour
     [SerializeField] private AudioClip[] listOfAudio;
 
     private float timer;
-    private float Scenetimer;
+    private float scene1Timer;
+    private float scene2Timer;
     private bool canContinue1stScene;
     private bool voices;
     void Start()
@@ -21,7 +22,8 @@ public class PlaySound : MonoBehaviour
         SMScript.instance.PlayBGM(alarm);
         voices = false;
         timer = 5f;
-        Scenetimer = 13f;
+        scene1Timer = 16f;
+        scene2Timer = 16f;
         FirstScene();
     }
 
@@ -29,28 +31,28 @@ public class PlaySound : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        Scenetimer -= Time.deltaTime;
+        scene1Timer -= Time.deltaTime;
 
         if (timer <= 0)
         {
             SMScript.instance.PlayBGM(bgm_Water);
         }
 
-        if (Scenetimer <=0 && canContinue1stScene) 
+        if (scene1Timer <=0 && canContinue1stScene) 
         {
-            Debug.Log("I am here");
+            //Debug.Log("I am here");
             if (Input.GetKeyDown(KeyCode.A))
             {
                 SMScript.instance.PlayDialogue2(listOfAudio[11], 0);
-                Debug.Log("Clicked");
+                SecondScene();
                 canContinue1stScene = false;
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 //scene switch
+                SecondScene();
                 canContinue1stScene = false;
             }
-        
         }
     }
 
@@ -59,5 +61,12 @@ public class PlaySound : MonoBehaviour
         SMScript.instance.PlayDialogue1(listOfAudio[3], 6);
         SMScript.instance.PlayDialogue2(listOfAudio[7], 10);
         canContinue1stScene=true;
+    }
+
+    void SecondScene()
+    {
+        SMScript.instance.StopBGM();
+        SMScript.instance.PlayBGM(bgm_Train);
+        
     }
 }
